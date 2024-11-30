@@ -1,5 +1,10 @@
 package org.example;
 
+import jakarta.persistence.*;
+import org.hibernate.engine.transaction.internal.TransactionImpl;
+
+@Entity
+@DiscriminatorValue("Triangle")
 public class Triangle extends Shape {
     private double x, y, z;
 
@@ -9,6 +14,8 @@ public class Triangle extends Shape {
         this.y = y;
         this.z = z;
     }
+
+    public Triangle() {}
 
     @Override
     public double getArea() {
