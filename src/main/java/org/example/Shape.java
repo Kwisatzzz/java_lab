@@ -2,9 +2,7 @@ package org.example;
 
 import jakarta.persistence.*;
 
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "shape_type", discriminatorType = DiscriminatorType.STRING)
+@MappedSuperclass
 public abstract class Shape {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,20 +11,27 @@ public abstract class Shape {
     @Embedded
     private Colour color;
 
+    public Shape() {}
+
     public Shape(Colour color) {
         this.color = color;
     }
 
-    public Shape() {}
+    public Long getId() {
+        return id;
+    }
 
     public Colour getColor() {
         return color;
     }
+
     public abstract double getArea();
+
     public abstract double getPerimeter();
+
     public String getColorDescription() {
         return String.format("Red: %d, Green: %d, Blue: %d, Alpha: %d",
-                color.red(), color.green(), color.blue(), color.alpha());
+                color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
     }
     public void print() {
         System.out.println(this.getClass().getSimpleName());

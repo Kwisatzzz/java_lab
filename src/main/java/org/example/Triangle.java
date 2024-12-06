@@ -1,18 +1,22 @@
 package org.example;
 
 import jakarta.persistence.*;
-import org.hibernate.engine.transaction.internal.TransactionImpl;
 
 @Entity
-@DiscriminatorValue("Triangle")
+@Table(name = "triangles")
 public class Triangle extends Shape {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private double x, y, z;
-
     public Triangle(Colour color, double x, double y, double z) {
         super(color);
         this.x = x;
         this.y = y;
         this.z = z;
+    }
+    public Triangle() {
+        super();
     }
 
     public Triangle() {}
@@ -27,4 +31,9 @@ public class Triangle extends Shape {
     public double getPerimeter() {
         return x + y + z;
     }
+
+    public Long getId() {
+        return id;
+    }
+
 }
