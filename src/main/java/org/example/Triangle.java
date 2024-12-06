@@ -19,8 +19,6 @@ public class Triangle extends Shape {
         super();
     }
 
-    public Triangle() {}
-
     @Override
     public double getArea() {
         double s = getPerimeter() / 2;

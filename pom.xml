@@ -36,7 +36,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Hibernate Core -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
@@ -49,7 +48,6 @@
             <version>3.1.0</version>
         </dependency>
 
-        <!-- PostgreSQL JDBC Driver -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
